@@ -1956,6 +1956,10 @@ var $_Tawk_io = ('undefined' === typeof module ? {} : module.exports);
    */
 
   Socket.prototype.onDisconnect = function (reason) {
+    if (!this.transport) {
+	return;
+    }
+
     var wasConnected = this.connected
       , wasConnecting = this.connecting;
 
